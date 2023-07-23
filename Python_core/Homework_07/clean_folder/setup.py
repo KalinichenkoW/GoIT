@@ -8,5 +8,5 @@ setup(
     author="Volodymyr Kalinichenko",
     author_email="kalinichenko.w@gmail.com",
     packages=find_namespace_packages(),
-    entry_points={"console_scripts": ["clean_folder=clean_folder.clean:start"]},
+    entry_points={"console_scripts": ["clean-folder=clean_folder.clean:start"]},
 )
