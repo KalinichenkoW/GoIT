@@ -36,9 +36,6 @@ def get_birthdays_per_week(users):
     # тільки дата
     current_date = current_datetime.date()
 
-    # Написання тижня
-    den_name = days_name.get(num_week)
-
     # Вираховуємо коли початок наступного тижня з початку суботи
     start_next_week = current_date + timedelta(days=7 - num_week - 2)
 
@@ -67,7 +64,7 @@ def get_birthdays_per_week(users):
                 else:
                     days_name[0].append(name)
 
-    print("Будь ласка поздоровте з Днем народження у ")
+    print("Будь ласка, привітайте з Днем народження у")
 
     for i, v in days_name.items():
         if v[2:] != []:
