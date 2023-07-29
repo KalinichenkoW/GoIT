@@ -42,11 +42,9 @@ def get_birthdays_per_week(users):
     # Поточний рік
     сurrent_year = current_datetime.strftime("%Y")
 
-    # список дат з наступного починаючи з суботи
+    # список дат з наступного починаючи з суботи добавимо до days_name
     a = 0
-    dates_week = []
     while a < 7:
-        dates_week.append(start_next_week + timedelta(days=a))
         a_dates_week = start_next_week + timedelta(days=a)
         days_name[a_dates_week.weekday()].append(a_dates_week)
         a += 1
