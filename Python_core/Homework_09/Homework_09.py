@@ -1,4 +1,4 @@
-# "Volodymyr": "0630000102", "Vika": "0976000504" 
+# "Volodymyr": "0637292070", "Vika": "0979359016"
 ADDRESSBOOK = {}
 
 
@@ -45,7 +45,7 @@ def handler_phone(data):
 # "show all". За цією командою бот виводить всі збереженні контакти з номерами телефонів у консоль.
 def handler_show_all(*args):
     for name, phone in ADDRESSBOOK.items():
-        print(f"{name}, tel: {phone")
+        print(f"{name}, tel: {phone}")
 
 
 # "good bye", "close", "exit" за будь-якою з цих команд бот завершує свою роботу після того,
