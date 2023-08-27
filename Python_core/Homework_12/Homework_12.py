@@ -210,7 +210,7 @@ class AddressBook(UserDict):
 
 
 if __name__ == "__main__":
-    # p = Phone("0638884455")
+    p = Phone("0638884455")
     # print(p)
     # test = Birthday("1994/02/26")
     # print(test)
