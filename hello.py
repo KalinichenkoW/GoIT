@@ -1,13 +1,46 @@
-import math
+import pickle
 
-RADIUS = 6371.01
 
-lat1 = math.radians(50.45)
-lon1 = math.radians(30.523)
+class Person:
+    def __init__(self, name: str, email: str, phone: str, favorite: bool):
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.favorite = favorite
 
-lat2 = math.radians(51.5072)
-lon2 = math.radians(-0.1275)
 
-distance = RADIUS * math.acos(math.sin(lat1) * math.sin(lat2) +
-                              math.cos(lat1) * math.cos(lat2) * math.cos(lon1 - lon2))
-print(f'{lat1}   {lon1}   {distance}')
+class Contacts:
+    def __init__(self, filename: str, contacts: list[Person] = None):
+        if contacts is None:
+            contacts = []
+        self.filename = filename
+        self.contacts = contacts
+        self.count_save = 0
+        self.is_unpacking = False
+
+    def save_to_file(self):
+        with open(self.filename, "wb") as file:
+            pickle.dump(self, file)
+
+    def read_from_file(self):
+        with open(self.filename, "rb") as file:
+            content = pickle.load(file)
+        return content
+
+    def __getstate__(self):
+        attributes = self.__dict__.copy()
+        attributes["count_save"] = attributes["count_save"] + 1
+        return attributes
+
+    def __setstate__(self, value):
+        self.__dict__ = value
+        self.fh = open(value["filename"])
+        self.fh.seek(value["contacts"])
+
+
+if __name__ == "__main__":
+    persons = Contacts("user_class.dat", contacts)
+    persons.save_to_file()
+    person_from_file = persons.read_from_file()
+    print(persons.is_unpacking)  # False
+    print(person_from_file.is_unpacking)  # True
