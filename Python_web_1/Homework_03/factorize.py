@@ -16,7 +16,7 @@ def callback(result):
 def factorize(*number):
     # YOUR CODE HERE
 
-    print(f"Count CPU: {cpu_count()}")
+
     with Pool(cpu_count()) as p:
         p.map_async(
             worker,
