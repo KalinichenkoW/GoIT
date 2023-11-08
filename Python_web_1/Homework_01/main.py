@@ -3,7 +3,7 @@ import webbrowser
 
 from abc import ABC, abstractmethod
 
-# from ContactBook import ContactBook
+from ContactBook import ContactBook
 # from NoteBook import NoteManager
 # from sort import FileSorter
 # from CryptoPrice import CryptoPriceFetcher
@@ -14,13 +14,10 @@ class BaseClass(ABC):
     def run(self):
         pass
 
-class ContactBook(BaseClass):
+class ContactBookABS(BaseClass):
     def run(self):
-        # Тут не зрозумів як додавати   import ContactBook
-
-        # contacts = ContactBook()
-        # contacts.main()
-
+        contacts = ContactBook()
+        contacts.main()
         print("ContactBook functionality")
 
 
@@ -48,7 +45,7 @@ class Exit(BaseClass):
 
 def main():
     modules = {        
-        '1': ContactBook(),
+        '1': ContactBookABS(),
         '2': NoteManager(),
         '3': FileSorter(),
         '4': CryptoPriceFetcher(),
